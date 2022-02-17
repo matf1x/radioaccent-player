@@ -1,0 +1,24 @@
+{
+  "name": "radioaccent-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss:dist/css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matf1x/radioaccent-player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matf1x/radioaccent-player/issues"
+  },
+  "homepage": "https://github.com/matf1x/radioaccent-player#readme",
+  "dependencies": {
+    "sass": "^1.49.7"
+  }
+}

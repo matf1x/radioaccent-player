@@ -1,0 +1,21 @@
+/*** Mixins ***/
+@use 'breakpoints' as *;
+
+/**
+ * Create a media query based on a breakpoint
+ **/
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+/**
+ * Set the image full on background page
+ **/
+@mixin fullImage($position: 'cover') {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: $position;
+}

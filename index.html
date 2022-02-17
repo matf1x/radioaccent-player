@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live | Radio Accent - Jouw Radio, Jouw Ritme</title>
+
+    <!-- Custom handlers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./dist/css/style.css">
+
+</head>
+<body>
+    
+    <!-- Mail player -->
+    <div class="playerContainer container">
+
+        <nav class="navigation">
+            <div class="navigation--brand">
+                <img src="./assets/img/logo.png" alt="Radio Accent Logo" title="Radio Accent - Jouw Radio, Jouw Ritme">
+            </div>
+            <div class="navigation-buttons">
+            </div>
+        </nav>
+
+        <section class="player">
+
+            <aside class="player--image">
+                <img src="" alt="" title="" id="playerSongImage">
+            </aside>
+            <main class="player--holder">
+                <div class="player--holder__details">
+                    <h2 id="playerSongArtist"></h2>
+                    <h3 id="playerSongTitle"></h3>
+
+                    <section class="player--holder__actions">
+                        <button class="btn" id="openNewMessage"><i class="fa-solid fa-comment-dots"></i> Stuur een bericht</button>
+                    </section>
+
+                </div>
+                <div class="player--holder__controls">
+
+                    <button id="playPause" class="controlBtn playPause">
+                        <i id="playPauseIcon" class="fa-solid fa-play"></i>
+                    </button>
+                    <p id="status" class="status"></p>
+                    <button id="volume" class="controlBtn volume">
+                        <i id="playVolumeIcon" class="fa-solid fa-volume-high"></i>
+                    </button>
+
+                </div>
+            </main>
+            
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2022 Radio Accent - Alle rechten voorbehouden</p>
+            <section class="socials">
+                <!--<button id="sendMessage" class="btn socialBtn"><i class="fa-solid fa-message-dots"></i> Stuur een bericht</button>-->
+                <a href="https://www.facebook.com/radioaccentgentwetteren" target="_blank" class="socialBtn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com/radioaccentbe" target="_blank" class="socialBtn"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com/radioaccent/" target="_blank" class="socialBtn"><i class="fa-brands fa-instagram"></i></a>
+            </section>
+        </footer>
+
+    </div>
+
+    <!-- Message modal -->
+    <div class="modal-container" id="messageModal">
+        <div class="modal container">
+            <h2>Stuur een bericht</h2>
+            <p>Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier in en stuur jouw bericht.</p>
+
+            <form class="form" id="messageForm">
+
+                <div class="successModal" id="successModal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>Je bericht werd succesvol verzonden</p>
+                </div>
+
+                <div class="input-box">
+                    <label>Uw naam: <span>*</span></label>
+                    <input type="text" placeholder="Vul je naam in" name="inputFullName" id="inputFullName">
+                    <small></small>
+                </div>
+
+                <div class="input-box">
+                    <label>Uw emailadres: </label>
+                    <input type="email" placeholder="Vul je enailadres in" name="inputMail" id="inputMail">
+                    <small></small>
+                </div>
+
+                <div class="input-box">
+                    <label>Uw telefoonnummer: </label>
+                    <input type="text" placeholder="Vul je telefoonnummer in" name="inputphone" id="inputPhone">
+                    <small></small>
+                </div>
+
+                <div class="input-box">
+                    <label>Uw bericht: <span>*</span></label>
+                    <input type="text" placeholder="Vul je bericht in" name="inputMessage" id="inputMessage">
+                    <small></small>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit" id="submitMessage">Verstuur</button> <button type="reset" id="closeMessage">Sluiten</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- The audio player -->
+    <audio src="" id="audio"></audio>
+
+    <!-- Javascripts -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <script src="./scripts/main.js" type="module"></script>
+
+</body>
+</html>

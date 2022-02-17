@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+body {
+    background: var(--clr-primary-400);
+    background: linear-gradient(141deg, var(--clr-primary-500) 0%, var(--clr-primary-300) 100%);
+    font-family: var(--ff-primary);
+    color: set-text-color(hsl(204, 92%, 38%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
