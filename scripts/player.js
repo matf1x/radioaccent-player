@@ -8,7 +8,9 @@ const playerElements = {
     },
     volume: {
         button: null,
-        icon: null
+        icon: null,
+        slider: null,
+        value: 100
     },
     status: null,
     playing: false
@@ -28,6 +30,7 @@ export function loadAudio(elements) {
         playerElements.status = elements.playerStatus;
         playerElements.volume.button = elements.playerVolumeBtn;
         playerElements.volume.icon = elements.playerVolumeIcon;
+        playerElements.volume.slider = elements.playerVolumeSlider;
 
         // First, set the source
         playerElements.audio.src = url;
@@ -41,7 +44,8 @@ export function loadAudio(elements) {
             // Toggle The play state, listen for State changes & start listening for the play/pause button
             listenForStateChanges();
             listenForButtonInteraction();
-            checkForAutoPlay()
+            checkForAutoPlay();
+            listenForAudioVolumeChange();
         }
     } catch(err) {
         playerElements.status.innerHTML = 'Error whilest loading the stream'
@@ -96,13 +100,65 @@ function listenForButtonInteraction() {
         // Check if audio is muted or not
         if(playerElements.audio.volume > 0.0) {
             playerElements.audio.volume = 0.0;
+            playerElements.volume.slider.value = 0;
+            applyFill(playerElements.volume.slider);
             playerElements.volume.icon.classList.replace("fa-volume-high", "fa-volume-xmark");
         } else {
-            playerElements.audio.volume = 0.7;
+            playerElements.audio.volume = playerElements.volume.value / 100;
+            playerElements.volume.slider.value = playerElements.volume.value;
+            applyFill(playerElements.volume.slider);
             playerElements.volume.icon.classList.replace("fa-volume-xmark", "fa-volume-high");
         }
     })
 }
+
+/**
+ * Listen for changes in the audio
+ */
+function listenForAudioVolumeChange() {
+
+    // Init fill to the slider
+    applyFill(playerElements.volume.slider);
+
+    // Listen for chages in the input
+    playerElements.volume.slider.addEventListener('input', (e) => {
+
+        // Save the new volume
+        playerElements.volume.value = e.target.value;
+
+        // Set the volume to the player
+        playerElements.audio.volume = playerElements.volume.value / 100;
+
+        // Check if volume is 0 to show the audio off icon
+        if(playerElements.audio.volume == 0)
+            playerElements.volume.icon.classList.replace("fa-volume-high", "fa-volume-xmark");
+        else
+            playerElements.volume.icon.classList.replace("fa-volume-xmark", "fa-volume-high");
+
+        // Apply the style to the slider
+        applyFill(e.target);
+    })
+
+}
+
+/**
+ * Change the style of the slider
+ * @param {*} slider The slider element
+ */
+function applyFill(slider) {
+
+    // Setup helpers
+    const options = {
+        fill: 'rgba(222, 222, 222, 1)',
+        background: "rgba(222, 222, 222, 0.214)"
+    };
+
+    const percentage = (100 * (slider.value - slider.min)) / (slider.max - slider.min);
+    const bg = `linear-gradient(90deg, ${options.fill} ${percentage}%, ${options.background} ${percentage +
+        0.1}%)`;
+    slider.style.background = bg;
+
+}   
 
 /**
  * Listen for state changes

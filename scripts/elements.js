@@ -18,7 +18,8 @@ export const elements = {
     playerPlayPause: document.querySelector('#playPause'),
     playerPlayPauseIcon: document.querySelector('#playPauseIcon'),
     playerStatus: document.querySelector('#status'),
-    playerVolumeBtn: document.querySelector('#volume'),
+    playerVolumeBtn: document.querySelector('#playVolumeIcon'),
     playerVolumeIcon: document.querySelector('#playVolumeIcon'),
-    playerAudio: document.querySelector('#audio')
+    playerAudio: document.querySelector('#audio'),
+    playerVolumeSlider: document.querySelector('#volumeSlider')
 }

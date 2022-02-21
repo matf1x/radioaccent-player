@@ -41,13 +41,16 @@
                 </div>
                 <div class="player--holder__controls">
 
-                    <button id="playPause" class="controlBtn playPause">
+                    <div id="playPause" class="controlBtn playPause">
                         <i id="playPauseIcon" class="fa-solid fa-play"></i>
-                    </button>
+                    </div>
                     <p id="status" class="status"></p>
-                    <button id="volume" class="controlBtn volume">
+                    <div id="volume" class="controlBtn volume">
                         <i id="playVolumeIcon" class="fa-solid fa-volume-high"></i>
-                    </button>
+                        <div class="volume--slider">
+                            <input type="range" min="0" max="100" value="100" id="volumeSlider">
+                        </div>
+                    </div>
 
                 </div>
             </main>

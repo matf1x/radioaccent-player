@@ -37,19 +37,19 @@
 
             h2 {
                 font-weight: 700;
-                font-size: var(--fs-600);
+                font-size: var(--fs-500);
 
                 @include mq("medium") {
-                    font-size: var(--fs-700);
+                    font-size: var(--fs-600);
                 }
             }
 
             h3 {
                 font-weight: 400;
-                font-size: var(--fs-400);
+                font-size: var(--fs-300);
 
                 @include mq("medium") {
-                    font-size: var(--fs-500);
+                    font-size: var(--fs-400);
                 }
             }
 
@@ -75,25 +75,77 @@
         }
 
         &__controls {
-            display: grid;
-            grid-template-columns: 30px auto 30px;
-            grid-gap: var(--spacer);
+            display: flex;
+            flex-direction: row;
+            gap: var(--spacer);
             padding: 0 1rem;
             background: var(--clr-neutral-900);
             align-items: center;
             @include accentBorder();
 
-            button {
+            i {
                 color: var(--clr-neutral-300);
                 font-size: var(--fs-500);
-                height: 50px;
                 line-height: 50px;
                 cursor: pointer;
                 transition: color .3s ease-in-out;
-                width: 30px;
 
                 &:hover {
                     color: var(--clr-neutral-100);
+                }
+            }
+
+            .playPause {
+                width: 30px;
+                text-align: center;
+            }
+
+            .status {
+                flex: 1;
+            }
+
+            .volume {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    input[type=range] {
+                        opacity: 1;
+                        width: 100px;
+                        margin-left: 1rem;
+                    }
+                }
+
+                input[type=range] {
+                    -webkit-appearance: none;
+                    background: var(--clr-neutral-200);
+                    border-radius: 20px;
+                    height: 5px;
+                    width: 0;
+                    opacity: 0;
+                    outline: none;
+                    cursor: pointer;
+                    transition: opacity .325s ease-in,
+                                width .325s ease-out;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none; /* Override default look */
+                        appearance: none;
+                        width: 17.5px;
+                        height: 17.5px;
+                        border-radius: 50%;
+                        background: var(--clr-primary-400);
+                    }
+
+                    &::-moz-range-thumb {
+                        appearance: none;
+                        width: 17.5px;
+                        height: 17.5px;
+                        border-radius: 50%;
+                        background: var(--clr-primary-400);
+                    }
                 }
             }
 
