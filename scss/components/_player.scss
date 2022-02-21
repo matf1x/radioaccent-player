@@ -12,9 +12,11 @@
 
     &--image {
         display: none;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 
         img {
             width: 100%;
+            @include accentBorder();
         }
 
         @include mq("medium") {
@@ -78,8 +80,8 @@
             grid-gap: var(--spacer);
             padding: 0 1rem;
             background: var(--clr-neutral-900);
-            border-radius: 10px;
             align-items: center;
+            @include accentBorder();
 
             button {
                 color: var(--clr-neutral-300);
