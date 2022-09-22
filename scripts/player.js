@@ -1,3 +1,6 @@
+// Imports media sessions
+import { updateMediaSession } from "./mediaSession.js";
+
 // Global variables
 const url = "https://www.clubfmserver.be/accent.mp3";
 const playerElements = {
@@ -46,6 +49,7 @@ export function loadAudio(elements) {
             listenForButtonInteraction();
             checkForAutoPlay();
             listenForAudioVolumeChange();
+            updateMediaSession();
         }
     } catch(err) {
         playerElements.status.innerHTML = 'Error whilest loading the stream'
@@ -77,6 +81,7 @@ function togglePlayState() {
             playerElements.audio.pause();
         } else {
             playerElements.audio.play();
+            updateMediaSession();
         }        
         playerElements.playing = !playerElements.playing;
     } catch(e) {
@@ -93,7 +98,7 @@ function listenForButtonInteraction() {
     playerElements.playpause.button.addEventListener('click', () => {
         // First, check the state
         togglePlayState();
-    })
+    });
 
     // Listen for the Volume button
     playerElements.volume.button.addEventListener('click', () => {
@@ -109,7 +114,7 @@ function listenForButtonInteraction() {
             applyFill(playerElements.volume.slider);
             playerElements.volume.icon.classList.replace("fa-volume-xmark", "fa-volume-high");
         }
-    })
+    });
 }
 
 /**

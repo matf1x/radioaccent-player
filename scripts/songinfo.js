@@ -1,3 +1,6 @@
+// Import media session
+import { updateMediaSession } from "./mediaSession.js";
+
 // Setup global variables
 const api = 'https://www.radioaccent.be/api/song/latest';
 const songElements = {
@@ -13,6 +16,10 @@ const songInfo = {
 }
 const triggerTime = 15000;
 
+/**
+ * Load the song information
+ * @param {*} elements 
+ */
 export function loadSongInfo(elements) {
 
     // Set the elements
@@ -28,6 +35,14 @@ export function loadSongInfo(elements) {
         getSongInfoFromAPI();
     }, triggerTime);
 
+}
+
+/**
+ * Get the song info
+ * @returns songInfo
+ */
+export function getSongInfo() {
+    return songInfo;
 }
 
 // Get the song info from the API
@@ -57,6 +72,8 @@ function getSongInfoFromAPI() {
                 songElements.artist.innerHTML = songInfo.artist;
                 songElements.title.innerHTML = songInfo.title;
                 songElements.cover.src = songInfo.cover;
+
+                updateMediaSession();
             }
 
         }

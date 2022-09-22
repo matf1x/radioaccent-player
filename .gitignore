@@ -129,3 +129,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 scripts/chromecast.js
+assets/covers/96x96.png
+assets/covers/512x512.png
+assets/covers/384x384.png
+assets/covers/300x300.png
+assets/covers/256x256.png
+assets/covers/192x192.png
+assets/covers/128x128.png
+.htaccess
