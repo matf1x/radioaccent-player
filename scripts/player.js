@@ -2,7 +2,6 @@
 import { updateMediaSession } from "./mediaSession.js";
 
 // Global variables
-const url = "https://www.clubfmserver.be/accent.mp3";
 const playerElements = {
     audio: null,
     playpause: {
@@ -22,9 +21,10 @@ const playerElements = {
 /**
  * Initalize the audio player, set the correct elements to the variables. This will also load the audio and prepare for auto play.
  * After that, we listen for button changes, check if we can autoplay and update the Media Session API
+ * @param {String} url The URL to the audio file
  * @param {object} elements The following elements are needed: Audio player, play/pause button & icon, volume button & icon + status element.
  */
-export function loadAudio(elements) {
+export function loadAudio(url, elements) {
 
     try {
         // Set the audioContainer

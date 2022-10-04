@@ -1,12 +1,16 @@
 // Setup global variables
-const api = 'https://www.radioaccent.be/api/messages/add';
+let messageAPI = '';
 let messageElements = null;
 
 /**
- * Load the Message functions
- * @param {*} elements All the elements 
+ * Initialize the Message functions
+ * @param {string} url The url to the MessagingAPI
+ * @param {object} elements All the elements 
  */
-export function loadMessage(elements) {
+export function loadMessage(url, elements) {
+
+    // Set the messageAPI variable
+    messageAPI = url;
 
     // Set the elements
     messageElements = elements;
@@ -115,7 +119,7 @@ function sendMessageToAPI(body) {
     }
 
     // Open the request
-    xhttp.open('POST', api);
+    xhttp.open('POST', messageAPI);
     xhttp.setRequestHeader('Content-Type', 'application/json');
     xhttp.send(body);
 

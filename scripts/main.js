@@ -12,13 +12,13 @@ let currentState = 'listen';
  */
 function init() {
     // Load the audio
-    loadAudio(elements.player);
+    loadAudio('https://www.clubfmserver.be/accent.mp3', elements.player);
 
     // Load the song info
     loadSongInfo('https://www.radioaccent.be/api/song/latest', elements.songInfo, 1500);
 
     // Load the message function
-    loadMessage(elements.messages);
+    loadMessage('https://www.radioaccent.be/api/messages/add', elements.messages);
 }
 
 // Initialize the player
