@@ -8,7 +8,7 @@ We created a unique player specific for the needs of the radio station. The play
 [SASS](https://www.npmjs.com/package/sass)
 
 ## Configuration
-*Javascript*
+### Javascript
 Update in 'scripts/main.js' the correct path to the audio file, the url for the songInfo API and the url of the messaging API.
 
 You can also update the album to your station name in the 'scripts/mediaSession.js' file.
