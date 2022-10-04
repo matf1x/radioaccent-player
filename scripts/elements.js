@@ -12,14 +12,26 @@ export const elements = {
             message: document.querySelector('#inputMessage')
         }
     },
-    songCover: document.querySelector('#playerSongImage'),
-    songArtist: document.querySelector('#playerSongArtist'),
-    songTitle: document.querySelector('#playerSongTitle'),
-    playerPlayPause: document.querySelector('#playPause'),
-    playerPlayPauseIcon: document.querySelector('#playPauseIcon'),
-    playerStatus: document.querySelector('#status'),
-    playerVolumeBtn: document.querySelector('#playVolumeIcon'),
-    playerVolumeIcon: document.querySelector('#playVolumeIcon'),
-    playerAudio: document.querySelector('#audio'),
-    playerVolumeSlider: document.querySelector('#volumeSlider')
+    songInfo: {
+        artist: document.querySelector('#playerSongArtist'),
+        title: document.querySelector('#playerSongTitle'),
+        cover: document.querySelector('#playerSongImage')
+    },
+    player: {
+        source: {
+            audio: document.querySelector('#audio')
+        },
+        interactive: {
+            playPause: document.querySelector('#playPause'),
+            volume: document.querySelector('#playVolumeIcon'),
+            volumeSlider: document.querySelector('#volumeSlider')
+        },
+        icons: {
+            playPause: document.querySelector('#playPauseIcon'),
+            volume: document.querySelector('#playVolumeIcon'),
+        },
+        labels: {
+            status: document.querySelector('#status')
+        }
+    }
 }

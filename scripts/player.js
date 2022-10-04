@@ -20,20 +20,21 @@ const playerElements = {
 }
 
 /**
- * Load the audio into the audio container
+ * Initalize the audio player, set the correct elements to the variables. This will also load the audio and prepare for auto play.
+ * After that, we listen for button changes, check if we can autoplay and update the Media Session API
  * @param {object} elements The following elements are needed: Audio player, play/pause button & icon, volume button & icon + status element.
  */
 export function loadAudio(elements) {
 
     try {
         // Set the audioContainer
-        playerElements.audio = elements.playerAudio;
-        playerElements.playpause.button = elements.playerPlayPause;
-        playerElements.playpause.icon = elements.playerPlayPauseIcon;
-        playerElements.status = elements.playerStatus;
-        playerElements.volume.button = elements.playerVolumeBtn;
-        playerElements.volume.icon = elements.playerVolumeIcon;
-        playerElements.volume.slider = elements.playerVolumeSlider;
+        playerElements.audio = elements.source.audio;
+        playerElements.playpause.button = elements.interactive.playPause;
+        playerElements.playpause.icon = elements.icons.playPause;
+        playerElements.status = elements.labels.status;
+        playerElements.volume.button = elements.interactive.volume;
+        playerElements.volume.icon = elements.icons.volume;
+        playerElements.volume.slider = elements.interactive.volumeSlider;
 
         // First, set the source
         playerElements.audio.src = url;
@@ -72,7 +73,7 @@ function checkForAutoPlay() {
 }
 
 /**
- * Toggle the Playing state of the player
+ * Toggle the Play state of the player
  */
 function togglePlayState() {
     try {

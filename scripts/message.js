@@ -9,19 +9,7 @@ let messageElements = null;
 export function loadMessage(elements) {
 
     // Set the elements
-    messageElements = {
-        modal: elements.messages.modal,
-        openButton: elements.messages.openButton,
-        submitButton: elements.messages.submitButton,
-        closeButton: elements.messages.closeButton,
-        form: elements.messages.form,
-        inputs: {
-            fullName: elements.messages.inputs.fullName,
-            mail: elements.messages.inputs.mail,
-            phone: elements.messages.inputs.phone,
-            message: elements.messages.inputs.message
-        }
-    }  
+    messageElements = elements;
     
     // Listen for button clicks
     listenForButtonEvents();

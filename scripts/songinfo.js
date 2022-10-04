@@ -2,51 +2,49 @@
 import { updateMediaSession } from "./mediaSession.js";
 
 // Setup global variables
-const api = 'https://www.radioaccent.be/api/song/latest';
-const songElements = {
-    artist: null,
-    title: null,
-    cover: null
-};
+let songElements = {};
 const songInfo = {
     artist: null,
     title: null,
     cover: null,
     startTime: null
 }
-const triggerTime = 15000;
 
 /**
- * Load the song information
- * @param {*} elements 
+ * Initialize the local variables, call the API for the current song info and trigger the updater every set amount of time.
+ * @param {String} api URL to the API
+ * @param {Object} elements The HTML elements list (see elements.js)
+ * @param {Integer} triggerTime The time it needs to refresh the song info (in ms)
  */
-export function loadSongInfo(elements) {
+export function loadSongInfo(api, elements, triggerTime) {
 
     // Set the elements
-    songElements.artist = elements.songArtist;
-    songElements.title = elements.songTitle;
-    songElements.cover = elements.songCover;
+    songElements = elements;
 
     // Trigger the info
-    getSongInfoFromAPI();
+    getSongInfoFromAPI(api);
 
     // Get the song from the API
     const timer = setInterval(() => {
-        getSongInfoFromAPI();
+        getSongInfoFromAPI(api);
     }, triggerTime);
 
 }
 
 /**
- * Get the song info
- * @returns songInfo
+ * Get the current song information from the API
+ * @returns {songInfo} List with artist, title, cover and startTime
  */
 export function getSongInfo() {
     return songInfo;
 }
 
-// Get the song info from the API
-function getSongInfoFromAPI() {
+/**
+ * Get the current song info from an XHTTP request and put them into the songInfo object.
+ * We also update the songInfo in the player + updating the MediaSession
+ * @param {String} api The URL of the API
+ */
+function getSongInfoFromAPI(api) {
 
     // Setup the XMLHttpRequest
     const xhttp = new XMLHttpRequest();
