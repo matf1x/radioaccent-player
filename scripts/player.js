@@ -1,4 +1,5 @@
 // Imports media sessions
+import { sendMessage } from './chromecast.js'
 import { updateMediaSession } from "./mediaSession.js";
 
 // Global variables
@@ -59,6 +60,22 @@ export function loadAudio(url, elements) {
 }
 
 /**
+ * Cancel the player when something happens
+ */
+export function cancelPlayer() {
+    // Stop player
+    playerElements.audio.stop();
+}
+
+/**
+ * Restart the player when something happens
+ */
+export function resumePlayer() {
+    // Stop player
+    playerElements.audio.play();
+}
+
+/**
  * Check if the Autoplay is fired. otherwise, show message to user to click play
  */
 function checkForAutoPlay() {
@@ -79,14 +96,39 @@ function togglePlayState() {
     try {
         // First, check the state
         if(playerElements.playing) {
-            playerElements.audio.pause();
+
+            // Check if the audio player is still ongoing
+            if(!playerElements.audio.ended) {
+                // Pause the audio
+                playerElements.audio.pause();
+            }
+
+            // Send message to the chromecast app
+            sendMessage('pauseAudio');
+
         } else {
-            playerElements.audio.play();
+
+            // Check if the audio player is still ongoing
+            if(!playerElements.audio.ended) {
+                playerElements.audio.play();
+            }
+
+            // Send message to the chromecast app
+            sendMessage('resumeAudio');
+
+            // Resume the MediaSession
             updateMediaSession();
+
         }        
+
+        // Set the playing state to the correct one
         playerElements.playing = !playerElements.playing;
+
     } catch(e) {
+
+        // Show a message to the user when something went wrong
         playerElements.status.innerHTML = 'Error whilest loading the stream';
+        
     }
     
 }

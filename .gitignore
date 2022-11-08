@@ -128,7 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-scripts/chromecast.js
 assets/covers/96x96.png
 assets/covers/512x512.png
 assets/covers/384x384.png

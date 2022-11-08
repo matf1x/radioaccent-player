@@ -104,6 +104,23 @@
                 flex: 1;
             }
 
+            google-cast-launcher {
+                float: right;
+                margin: 0;
+                width: 40px;
+                height: 32px;
+                border: none;
+                outline: none;
+                transition: color .3s ease-in-out;
+                --disconnected-color: var(--clr-neutral-300);
+                --connected-color: var(--clr-secondary-300);
+                
+                &:hover {
+                    --disconnected-color: white;
+                    --connected-color: var(--clr-secondary-400);
+                }
+            }
+
             .volume {
                 display: flex;
                 flex-direction: row;
