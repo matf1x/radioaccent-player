@@ -58,20 +58,21 @@ function getSongInfoFromAPI(api) {
             const songApi = JSON.parse(xhttp.responseText);
 
             // Check if newer song is loaded
-            if(songInfo.startTime !== songApi.startTime) {
+            if(songInfo.startTime !== songApi[0].startTime) {
 
                 // Bind to the global variables
-                songInfo.artist = songApi.artist;
-                songInfo.title = songApi.title;
-                songInfo.cover = songApi.cover;
-                songInfo.startTime = songApi.startTime;
+                songInfo.artist = songApi[0].artist;
+                songInfo.title = songApi[0].title;
+                songInfo.cover = songApi[0].cover;
+                songInfo.startTime = songApi[0].startTime;
                 
                 // Set the song info into the elements
                 songElements.artist.innerHTML = songInfo.artist;
                 songElements.title.innerHTML = songInfo.title;
-                songElements.cover.src = songInfo.cover;
+                songElements.cover.src = 'data:image/png;charset=utf-8;base64,' + songInfo.cover;
 
                 updateMediaSession();
+
             }
 
         }

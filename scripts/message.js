@@ -1,6 +1,7 @@
 // Setup global variables
 let messageAPI = '';
 let messageElements = null;
+let messageAPItoken = '<YOUR-TOKEN>';
 
 /**
  * Initialize the Message functions
@@ -121,6 +122,7 @@ function sendMessageToAPI(body) {
     // Open the request
     xhttp.open('POST', messageAPI);
     xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.setRequestHeader('Authorization', 'Basic ' + messageAPItoken);
     xhttp.send(body);
 
 }

@@ -19,7 +19,7 @@ export function updateMediaSession() {
             artwork: [
                 { src: 'https://www.radioaccent.be/player/assets/covers/96x96.png',   sizes: '96x96' },
                 { src: 'https://www.radioaccent.be/player/assets/covers/128x128.png',   sizes: '128x128' },
-                { src: songInfo.cover,   sizes: '300x300' }
+                { src: 'data:image/png;charset=utf-8;base64,' + songInfo.cover,   sizes: '300x300' }
             ]
         });
 

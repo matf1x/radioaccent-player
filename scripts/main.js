@@ -3,7 +3,6 @@ import { elements } from "./elements.js";
 import { loadAudio } from "./player.js";
 import { loadSongInfo } from "./songinfo.js";
 import { loadMessage } from "./message.js";
-import { checkForChromeCast } from "./chromecast.js"
 
 /**
  * The URLs to the different API's and audio sources
@@ -14,8 +13,8 @@ const config = {
         type: 'audio/mpeg'
     },
     api: {
-        songInfo: 'https://www.radioaccent.be/api/song/latest', 
-        messages: 'https://www.radioaccent.be/api/messages/add'
+        songInfo: 'https://www.radioaccent.be/api/v2/playlist/onair', 
+        messages: 'https://www.radioaccent.be/api/v2/messages/add'
     }
 }
 
@@ -27,13 +26,10 @@ function init() {
     loadAudio(config.audio.src, elements.player);
 
     // Load the song info
-    loadSongInfo(config.api.songInfo, elements.songInfo, 1500);
+    loadSongInfo(config.api.songInfo, elements.songInfo, 15000);
 
     // Load the message function
     loadMessage(config.api.messages, elements.messages);
-
-    // Check the chromeCast API
-    checkForChromeCast(config.audio);
 }
 
 // Initialize the player
