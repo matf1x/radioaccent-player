@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+
+.songControls {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        color: var(--clr-neutral-100);
+    }
+
+    [data-type="message"] {
+        text-decoration: none;
+    }
+
+    [data-type="playpause"] {
+        font-size: var(--fs-700);
+        color: var(--clr-secondary-400);
+        transition: color 350ms ease-in-out, 350ms ease-in-out;
+
+        &:hover {
+            color: var(--clr-neutral-100);
+            transform: scale(1.1);
+        }
+    }
+
+    [data-type="mute"] {
+        text-align: right;
+    }
+
+    [data-type="message"], [data-type="mute"] {
+        flex: 1;
+        font-size: var(--fs-300);
+        font-weight: 600;
+        
+        i {
+            margin-right: .5rem;
+            color: var(--clr-secondary-400);
+        }
+    }
+}

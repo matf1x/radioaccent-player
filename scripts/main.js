@@ -1,36 +1,25 @@
-// Import other functions
-import { elements } from "./elements.js";
-import { loadAudio } from "./player.js";
-import { loadSongInfo } from "./songinfo.js";
-import { loadMessage } from "./message.js";
+import { listenForMessages } from './listeners/message.js'
+import { getSongInformation } from './listeners/songInfo.js'
+import { newAudioSession } from './instances/mediaSession.js'
 
 /**
- * The URLs to the different API's and audio sources
+ * Start the listeners
  */
-const config = {
-    audio: {
-        src: 'https://www.clubfmserver.be/accent.mp3', 
-        type: 'audio/mpeg'
-    },
-    api: {
-        songInfo: 'https://www.radioaccent.be/api/v2/playlist/onair', 
-        messages: 'https://www.radioaccent.be/api/v2/messages/add'
-    }
-}
+// The initialization
+(function() {
 
-/**
- * Initialize the audio player and components
- */
-function init() {
-    // Load the audio
-    loadAudio(config.audio.src, elements.player);
+    // Get the song information
+    getSongInformation();
 
-    // Load the song info
-    loadSongInfo(config.api.songInfo, elements.songInfo, 15000);
+    // Startup the new Media Session
+    newAudioSession();
 
-    // Load the message function
-    loadMessage(config.api.messages, elements.messages);
-}
+    // Set a timer to launch the getSongInformation every 15 seconds
+    const poll = setInterval(function() {
+        getSongInformation();
+    }, 15000);
 
-// Initialize the player
-init();
+    // Start listening to Events
+    listenForMessages();
+
+})();

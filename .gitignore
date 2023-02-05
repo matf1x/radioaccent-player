@@ -135,4 +135,6 @@ assets/covers/300x300.png
 assets/covers/256x256.png
 assets/covers/192x192.png
 assets/covers/128x128.png
+old-scripts/
+scripts/config.js
 .htaccess
