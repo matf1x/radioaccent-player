@@ -32,7 +32,10 @@
                 <div class="songControls flex">
                     <a href="#" data-type="message"><i class="fa-regular fa-comments"></i> Stuur bericht</a>
                     <a href="#" data-type="playpause"><i class="fa-solid fa-circle-play"></i></a>
-                    <a href="#" data-type="mute"><i class="fa-solid fa-volume-high"></i></a>
+                    <div class="flex volumeSlider">
+                        <input type="range" min="0" max="100" value="100" class="volume" data-type="volume"></input>
+                        <i class="fa-solid fa-volume-high" data-type="mute"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,12 +106,8 @@
         </section>
         
     </dialog>
-
-    <!-- Audio -->
-
-
+    
     <!-- Javascripts -->
-    <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <script src="./scripts/main.js" type="module"></script>
 
 </body>

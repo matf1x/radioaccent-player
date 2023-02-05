@@ -19,20 +19,38 @@ export function newAudioSession() {
             // Listen for the mute button
             config.player.buttons.mute.addEventListener('click', () => {
 
-                // Get the button icon
-                let buttonIcon = config.player.buttons.mute.querySelector('.fa-solid');
-
                 // Check the audio volume
                 if(audio.volume > 0) {
                     audio.volume = 0; 
-                    buttonIcon.classList.remove('fa-volume-high');
-                    buttonIcon.classList.add('fa-volume-xmark');
+                    config.player.buttons.volume.value = 0;
+                    config.player.buttons.mute.classList.remove('fa-volume-high');
+                    config.player.buttons.mute.classList.add('fa-volume-xmark');
                 } else {
                     audio.volume = config.player.audio.volume;
-                    buttonIcon.classList.remove('fa-volume-xmark');
-                    buttonIcon.classList.add('fa-volume-high');
+                    config.player.buttons.volume.value = (config.player.audio.volume * 100);
+                    config.player.buttons.mute.classList.remove('fa-volume-xmark');
+                    config.player.buttons.mute.classList.add('fa-volume-high');
                 } 
-            })
+            });
+
+            // Listen for volume change
+            config.player.buttons.volume.addEventListener('input', () => {
+                // Get the selected volume
+                const vol = config.player.buttons.volume.value / 100;
+                
+                // Update the audio
+                audio.volume = vol;
+                config.player.audio.volume = vol;
+
+                // Check if volume is 0, then change the icon
+                if(vol == 0) {
+                    config.player.buttons.mute.classList.remove('fa-volume-high');
+                    config.player.buttons.mute.classList.add('fa-volume-xmark');
+                } else if(vol > 0 && vol < 0.35) {
+                    config.player.buttons.mute.classList.remove('fa-volume-xmark');
+                    config.player.buttons.mute.classList.add('fa-volume-high');
+                }
+            });
             
         })
         .catch(alert);
