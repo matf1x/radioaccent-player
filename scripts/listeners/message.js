@@ -43,6 +43,10 @@ function toggleModal(type) {
 
         // reset the form
         config.message.modal.form.reset();
+
+        // Reset the screens
+        config.message.modal.screens.complete.classList.remove('visible');
+        config.message.modal.screens.entry.classList.add('visible');
     }
 }
 
