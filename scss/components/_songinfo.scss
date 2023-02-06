@@ -1,0 +1,59 @@
+@use "../abstracts" as *;
+
+.songInfo {
+    flex: 1;
+    margin-bottom: 1rem;
+
+    @include mq('medium') {
+        display: flex;
+        gap: var(--gap, var(--spacer));
+        margin-bottom: 0;
+    }
+
+    [data-type='song-cover'] {
+        width: 100%;
+        aspect-ratio: 4 / 4;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 1rem;
+        @include accentBorder();
+
+        @include mq('medium') {
+            width: 175px;
+        }
+    }
+
+    &--text {
+
+        h3, h4 {
+            padding: 0;
+            margin: 0;
+            text-shadow: 0 1px 1px #000;
+        }
+
+        h3 {
+            font-family: var(--ff-primary);
+            font-size: var(--fs-500);
+            font-weight: 700;
+            line-height: var(--fs-400);
+            margin-bottom: .25rem;
+
+            @include mq('medium') {
+                font-size: var(--fs-600);
+                line-height: var(--fs-700);
+            }
+        }
+
+        h4 {
+            font-size: var(--fs-200);
+            font-weight: 400;
+            line-height: var(--fs-300);
+
+            @include mq('medium') {
+                font-size: var(--fs-300);
+                line-height: var(--fs-400);
+            }
+        }
+
+    }
+}

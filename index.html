@@ -12,114 +12,104 @@
 
 </head>
 <body>
-    
-    <!-- Mail player -->
-    <div class="playerContainer container">
 
-        <nav class="navigation">
-            <div class="navigation--brand">
-                <img src="./assets/img/logo.png" alt="Radio Accent Logo" title="Radio Accent - Jouw Radio, Jouw Ritme">
-            </div>
-            <div class="navigation-buttons">
-            </div>
-        </nav>
+    <section class="player">
 
-        <section class="player">
+        <div class="player--branding">
+            <img src="./assets/img/logo.png" alt="Radio Accent Logo" title="Radio Accent - Jouw Radio, Jouw Ritme">
+        </div>
 
-            <aside class="player--image">
-                <img src="" alt="" title="" id="playerSongImage">
-            </aside>
-            <main class="player--holder">
-                <div class="player--holder__details">
-                    <h2 id="playerSongArtist"></h2>
-                    <h3 id="playerSongTitle"></h3>
-
-                    <section class="player--holder__actions">
-                        <button class="btn" id="openNewMessage"><i class="fa-solid fa-comment-dots"></i> Stuur een bericht</button>
-                    </section>
-
-                </div>
-                <div class="player--holder__controls">
-
-                    <div id="playPause" class="controlBtn playPause">
-                        <i id="playPauseIcon" class="fa-solid fa-play"></i>
+        <div class="player--holder">
+            <img src="" alt="" data-type="background-image">
+            <div class="player--holder__content">
+                <div class="songInfo">
+                    <img src="" alt="" data-type="song-cover">
+                    <div class="songInfo--text">
+                        <h3 data-type="artist">Radio Accent</h3>
+                        <h4 data-type="title">Jouw Radio, Jouw Ritme</h4>
                     </div>
-                    <p id="status" class="status"></p>
-                    <google-cast-launcher></google-cast-launcher>
-                    <div id="volume" class="controlBtn volume">
-                        <i id="playVolumeIcon" class="fa-solid fa-volume-high"></i>
-                        <div class="volume--slider">
-                            <input type="range" min="0" max="100" value="100" id="volumeSlider">
-                        </div>
-                    </div>
-
                 </div>
-            </main>
-            
-        </section>
+                <div class="songControls">
+                    <a href="#" data-type="message"><i class="fa-regular fa-comments"></i> <span>Stuur bericht</span></a>
+                    <div class="flex--grow text--center">
+                        <i class="fa-solid fa-circle-play" data-type="playpause"></i>
+                    </div>
+                    <div class="flex volumeSlider">
+                        <input type="range" min="0" max="100" value="100" class="volume" data-type="volume"></input>
+                        <i class="fa-solid fa-volume-high" data-type="mute"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <footer class="footer">
-            <p>&copy; 2022 Radio Accent - Alle rechten voorbehouden</p>
-            <section class="socials">
-                <!--<button id="sendMessage" class="btn socialBtn"><i class="fa-solid fa-message-dots"></i> Stuur een bericht</button>-->
-                <a href="https://www.facebook.com/radioaccentgentwetteren" target="_blank" class="socialBtn"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://twitter.com/radioaccentbe" target="_blank" class="socialBtn"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.instagram.com/radioaccent/" target="_blank" class="socialBtn"><i class="fa-brands fa-instagram"></i></a>
-            </section>
-        </footer>
+        <div class="player--footer flex">
+            <p class="copyright">&copy; 2023 Radio Accent - VZW Radio VRS - Bookmolenstraat 7, 9230 Wetteren</p>
+            <ul class="socials flex">
+                <li><a href="https://www.facebook.com/radioaccentgentwetteren/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/radioaccentbe" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/radioaccent/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCgHgiCdJkz9xv1396ufy5mg" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+        </div>
 
-    </div>
+    </section>
 
-    <!-- Message modal -->
-    <div class="modal-container" id="messageModal">
-        <div class="modal container">
+    <!-- The message modal -->
+    <dialog class="modal" data-modal="message">
+
+        <span class="closeButton" data-action="close-modal">X</span>
+
+        <section id="entry" class="entry screen visible" data-screen="form">
             <h2>Stuur een bericht</h2>
             <p>Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier in en stuur jouw bericht.</p>
 
-            <form class="form" id="messageForm">
+            <p class="error" id="errorMessage" data-form="error">Er is een fout opgetreden tijdens het versturen van je bericht! Probeer later opnieuw</p>
 
-                <div class="successModal" id="successModal">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Je bericht werd succesvol verzonden</p>
-                </div>
+            <form data-form="message">
 
                 <div class="input-box">
                     <label>Uw naam: <span>*</span></label>
-                    <input type="text" placeholder="Vul je naam in" name="inputFullName" id="inputFullName">
-                    <small></small>
+                    <input type="text" required placeholder="Vul je naam in" name="fullName">
                 </div>
 
                 <div class="input-box">
                     <label>Uw emailadres: </label>
-                    <input type="email" placeholder="Vul je enailadres in" name="inputMail" id="inputMail">
-                    <small></small>
+                    <input type="email" placeholder="Vul je emailadres in" name="mail">
                 </div>
 
                 <div class="input-box">
                     <label>Uw telefoonnummer: </label>
-                    <input type="text" placeholder="Vul je telefoonnummer in" name="inputphone" id="inputPhone">
-                    <small></small>
+                    <input type="tel" placeholder="Vul je telefoonnummer in" name="phone">
                 </div>
 
                 <div class="input-box">
                     <label>Uw bericht: <span>*</span></label>
-                    <input type="text" placeholder="Vul je bericht in" name="inputMessage" id="inputMessage">
-                    <small></small>
+                    <input type="text" required placeholder="Vul je bericht in" name="message">
                 </div>
 
                 <div class="buttons">
-                    <button type="submit" class="submit" id="submitMessage">Verstuur</button> <button type="reset" id="closeMessage">Sluiten</button>
+                    <button type="submit" class="submit">Verstuur bericht</button> <button type="reset">Annuleren</button>
                 </div>
+
             </form>
+        </section>
 
-        </div>
-    </div>
+        <section class="complete screen" data-screen="success">
+            
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 
-    <!-- The audio player -->
-    <audio src="" id="audio"></audio>
+            <h2>Het bericht is succesvol verstuurd</h2>
+            <p>Je bericht heeft de studio bereikt. Je kan nu dit venster afsluiten.</p>
 
+            <div class="buttons">
+                <button type="button" id="closeMessage" data-action="close-modal">Sluiten</button>
+            </div>
+            
+        </section>
+        
+    </dialog>
+    
     <!-- Javascripts -->
-    <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <script src="./scripts/main.js" type="module"></script>
 
 </body>

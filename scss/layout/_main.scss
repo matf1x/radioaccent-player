@@ -1,0 +1,110 @@
+@use "../abstracts" as *;
+
+.player {
+    --spacer: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 var(--spacer);
+    padding: 0;
+
+    @include mq('medium') {
+        --spacer: 2rem;
+        margin: 0;
+    }
+
+    &--branding {
+        margin-bottom: var(--spacer);
+        text-align: center;
+
+        img {
+            width: 200px;
+
+            @include mq('medium') {
+                width: 250px;
+            }
+        }
+    }
+
+    &--holder {
+        display: grid;
+        grid-template-areas: 'stack';
+        place-items: start;
+        width: 100%;
+        height: 60vh;
+        background-color: var(--clr-neutral-900);
+        background-image: linear-gradient(38deg, rgb(40, 40, 40) 0%, rgb(27, 27, 27) 100%);
+        margin-bottom: var(--spacer);
+        color: var(--clr-neutral-100);
+        overflow: hidden;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+        @include accentBorder();
+
+        @include mq('medium') {
+            height: 325px;
+        }
+
+        & > * {
+            grid-area: stack;
+        }
+
+        [data-type='background-image'] {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: blur(10px);
+            opacity: .2;
+            z-index: 1;
+        }
+
+        &__content {
+            display: flex;
+            gap: var(--gap, var(--spacer));
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            padding: var(--spacer);
+            z-index: 2;
+
+            @include mq('medium') {
+                height: 325px;
+            }
+        }
+    }
+
+    &--footer {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+        @include mq('medium') {
+            padding: 0 1rem;
+        }
+
+        p.copyright {
+            flex: 1;
+            font-family: var(--ff-primary);
+            font-weight: 600;
+            font-size: var(--fs-100);
+            color: var(--clr-neutral-100);
+        }
+
+        ul.socials {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                a{
+                    color: var(--clr-neutral-200);
+                    font-size: var(--fs-500);
+                    transition: color 350ms ease-in-out;
+
+                    &:hover {
+                        color: var(--clr-neutral-100);
+                    }
+                }
+            }
+        }
+    }
+}
