@@ -1,19 +1,25 @@
-# radioaccent-player
-This repository holds the Audio Player for Radio Accent, an local radio station from Belgium.
+# Radio Accent Audio Player
+This repository contains the code for the Audio Player that's used by Radio Accent.
+This is a custom audio player that includes the controls for the audio (start/stop and volume), and also a way to send messaged to the studio.
 
 ## Why
-We created a unique player specific for the needs of the radio station. The player must handle the audio itself, but also includes a messaging system to the studio.
+There are a lot of audio players out there. But we are always trying something new so this was a way of trying the HTML5 Audio element + also trying to learn new stuff like fetch.
 
 ## Dependencies
 [SASS](https://www.npmjs.com/package/sass)
 
 ## Configuration
 ### Javascript
-Update in `scripts/main.js` the correct path to the audio file, the url for the songInfo API and the url of the messaging API.
+First, fill in the API routes in `scripts/config_example.js` and also the correct URL to the audio file. After that, rename the file to `config.js` so that the main script can find it.
 
-You can also update the album to your station name in the `scripts/mediaSession.js` file.
+When you try to edit the SCSS files, you need to run the following code in the terminal to render a new CSS file. These will me stored in the `dist/` folder.
+
+	npm run sass
 
 ## Roadmap
+There are some features we want to add in the future. These are added to the Roadmap.
+If you want something else, let us know. In that way, we can add it to the roadmap.
+
 * [x] Media Session API
 * [ ] Chromecast function
 * [ ] Send files with a message (ex. Photo, Video ...)
