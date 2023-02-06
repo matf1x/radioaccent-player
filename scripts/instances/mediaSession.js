@@ -91,30 +91,26 @@ const startAudioPlayer = new Promise((resolve, reject) => {
 
         // Set the onPlay
         audio.addEventListener('playing', () => {
-            let buttonIcon = config.player.buttons.playPause.querySelector('.fa-solid');
-            buttonIcon.classList.remove('fa-circle-play');
-            buttonIcon.classList.add('fa-circle-pause');
+            config.player.buttons.playPause.classList.remove('fa-circle-play');
+            config.player.buttons.playPause.classList.add('fa-circle-pause');
         });
 
         // Set the onPlay
         audio.addEventListener('pause', () => {
-            let buttonIcon = config.player.buttons.playPause.querySelector('.fa-solid');
-            buttonIcon.classList.remove('fa-circle-pause');
-            buttonIcon.classList.add('fa-circle-play');
+            config.player.buttons.playPause.classList.remove('fa-circle-pause');
+            config.player.buttons.playPause.classList.add('fa-circle-play');
         });
 
         // Set the onPlay
         audio.addEventListener('waiting', () => {
-            let buttonIcon = config.player.buttons.playPause.querySelector('.fa-solid');
-            buttonIcon.classList.remove('fa-circle-pause');
-            buttonIcon.classList.add('fa-compact-disc');
+            config.player.buttons.playPause.classList.remove('fa-circle-pause');
+            config.player.buttons.playPause.classList.add('fa-compact-disc');
         });
 
         // Set the onPlay
         audio.addEventListener('error', () => {
-            let buttonIcon = config.player.buttons.playPause.querySelector('.fa-solid');
-            buttonIcon.classList.remove('fa-circle-pause');
-            buttonIcon.classList.add('fa-circle-play');
+            config.player.buttons.playPause.classList.remove('fa-circle-pause');
+            config.player.buttons.playPause.classList.add('fa-circle-play');
         });
 
         // Send a resolve to let the caller know we are OK
