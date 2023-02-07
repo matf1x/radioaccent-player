@@ -21,7 +21,7 @@ There are some features we want to add in the future. These are added to the Roa
 If you want something else, let us know. In that way, we can add it to the roadmap.
 
 * [x] Media Session API
-* [ ] Convert to a Web App
+* [x] Convert to a Web App
 * [ ] Chromecast function
 * [ ] Send files with a message (ex. Photo, Video ...)
  

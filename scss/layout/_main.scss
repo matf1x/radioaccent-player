@@ -16,7 +16,7 @@
         margin-bottom: var(--spacer);
         text-align: center;
 
-        img {
+        picture {
             width: 200px;
 
             @include mq('medium') {
@@ -30,7 +30,7 @@
         grid-template-areas: 'stack';
         place-items: start;
         width: 100%;
-        height: 60vh;
+        height: max-content;
         background-color: var(--clr-neutral-900);
         background-image: linear-gradient(38deg, rgb(40, 40, 40) 0%, rgb(27, 27, 27) 100%);
         margin-bottom: var(--spacer);
@@ -85,7 +85,7 @@
             flex: 1;
             font-family: var(--ff-primary);
             font-weight: 600;
-            font-size: var(--fs-100);
+            font-size: var(--fs-200);
             color: var(--clr-neutral-100);
         }
 
