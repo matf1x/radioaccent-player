@@ -12,10 +12,14 @@
 
     [data-type='song-cover'] {
         width: 100%;
+        border: none;
         aspect-ratio: 4 / 4;
         object-fit: cover;
         object-position: center;
         margin-bottom: 1rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
         @include accentBorder();
 
         @include mq('medium') {

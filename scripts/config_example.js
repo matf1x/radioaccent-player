@@ -18,7 +18,8 @@ export const config = {
         },
         buttons: {
             playPause: document.querySelector('[data-type="playpause"]'),
-            mute: document.querySelector('[data-type="mute"]')
+            mute: document.querySelector('[data-type="mute"]'),
+            volume: document.querySelector('[data-type="volume"]')
         }
     },
     song: {

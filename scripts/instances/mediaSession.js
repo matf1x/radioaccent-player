@@ -53,7 +53,12 @@ export function newAudioSession() {
             });
             
         })
-        .catch(alert);
+        .catch((error) => {
+            return false;
+        });
+
+        // Default return
+        return true;
 }
 
 /**
@@ -113,8 +118,10 @@ const startAudioPlayer = new Promise((resolve, reject) => {
             config.player.buttons.playPause.classList.add('fa-circle-play');
         });
 
+        // Check if the audio is loaded
+        audio.addEventListener('canplay', () => resolve(audio));
+
         // Send a resolve to let the caller know we are OK
-        resolve(audio);
 
     } catch(e) {
         // Send a reject to let the user know something went wrong
