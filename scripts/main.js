@@ -1,10 +1,11 @@
-import { initPlayer } from './init.js'
-
 /**
- * Start the listeners
+ * RA Player Starter
+ * This will startup the player in the correct way
  */
-// The initialization
-(function() {
+(async function() {
+    // Load the correct files
+    const { init } = await import('./init.js'); 
+
     // Initialize the player
-    initPlayer();
+    init();
 })();

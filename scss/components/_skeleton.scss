@@ -1,3 +1,4 @@
+@use "../abstracts" as *;
 .is-loading {
     img, h3, h4, [data-type='playpause'], [data-type='message'], .volumeSlider {
         background: #333;
@@ -8,13 +9,21 @@
     }
 
     h3 {
-        min-height: 45px;
-        width: 250px;
+        height: 18px;
+        max-width: 250px;
+
+        @include mq('medium') {
+            height: 45px;
+        }
     }
 
     h4 {
-        height: 25px;
-        width: 165px;
+        height: 15px;
+        max-width: 165px;
+
+        @include mq('medium') {
+            height: 25px;
+        }
     }
 
     [data-type='playpause'] {
@@ -23,13 +32,13 @@
     }
 
     [data-type='message'] {
-        height: 25px;
-        width: 142px;
+        max-height: 25px;
+        max-width: 142px;
     }
 
     .volumeSlider {
-        width: 145px;
-        height: 16px;
+        max-width: 145px;
+        max-height: 16px;
     }
 }
 
