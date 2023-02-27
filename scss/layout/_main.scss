@@ -2,14 +2,15 @@
 
 .player {
     --spacer: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100dvh;
+    overflow: hidden;
     width: 100%;
     max-width: 900px;
     margin: 0 var(--spacer);
     padding: 0;
-
-    @include mq('small') {
-        height: 610px;
-    }
 
     @include mq('medium') {
         height: 500px;
@@ -41,7 +42,6 @@
         margin-bottom: var(--spacer);
         color: var(--clr-neutral-100);
         overflow: hidden;
-        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
         @include accentBorder();
 
         @include mq('medium') {
@@ -84,7 +84,7 @@
         width: 100%;
         
         @include mq('medium') {
-            display: block;
+            display: flex;
             padding: 0 1rem;
         }
 

@@ -19,7 +19,8 @@
     "url": "https://github.com/matf1x/radioaccent-player/issues"
   },
   "homepage": "https://github.com/matf1x/radioaccent-player#readme",
-  "dependencies": {
-    "sass": "^1.49.7"
+  "devDependencies": {
+    "prettier": "2.8.4",
+    "sass": "^1.58.3"
   }
 }

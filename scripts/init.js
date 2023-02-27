@@ -13,8 +13,15 @@ export async function init() {
             ui.updateSong(resp.elements, data);
             ui.showFullPlayer(resp.elements);
             ui.updateMediaSession(resp.player, data);
-            player.listen(resp);
-        }).catch((e) => { console.log(e); alert('Er liep iets fout bij het laden van de player! probeer later opnieuw'); });
 
+            // Listen for player events
+            player.listen(resp);
+
+            // Listen for message button click
+            resp.elements.message.buttons.create.addEventListener('click', async() => {
+                const modal = await import('./messages/main.js');
+                modal.toggleModal('open', resp.elements);
+            });
+        }).catch((e) => { console.log(e); alert('Er liep iets fout bij het laden van de player! probeer later opnieuw'); });
     }).catch((e) => { alert('Er liep iets fout bij het laden van de player! probeer later opnieuw'); });
 }
