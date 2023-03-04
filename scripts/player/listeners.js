@@ -13,10 +13,12 @@ function buttonListener() {
         if(player.volume > 0) {
             player.volume = 0;
             elements.player.volume.slider.value = 0;
+            localStorage.setItem('volume', 0);
             changeButtonIcon(elements.player.buttons.mute, 'volumeMute');
         } else {
-            player.volume = audio.config.volume;
-            elements.player.volume.slider.value = (audio.config.volume * 100);
+            player.volume = audio.volume;
+            localStorage.setItem('volume', audio.volume);
+            elements.player.volume.slider.value = (audio.volume * 100);
             changeButtonIcon(elements.player.buttons.mute, 'volumeHigh');
         }
     });
@@ -34,7 +36,8 @@ function buttonListener() {
         
         // Update the audio
         player.volume = vol;
-        audio.config.volume = vol;
+        audio.volume = vol;
+        localStorage.setItem('volume', vol);
 
         // Check if volume is 0, then change the icon
         if(vol == 0) {
