@@ -7,9 +7,9 @@
  * @return {String} #color
  */
 @function set-text-color($background) {
-    @if (lightness($background) > 50) {
-        @return #000; // Lighter background, return dark color
-    } @else {
-        @return #fff; // Darker background, return light color
-    }
+  @if (lightness($background) > 50) {
+    @return #000; // Lighter background, return dark color
+  } @else {
+    @return #fff; // Darker background, return light color
+  }
 }

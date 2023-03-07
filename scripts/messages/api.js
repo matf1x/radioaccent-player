@@ -53,7 +53,7 @@ export function submit(elements) {
         return response.json()
       })
       .then((data) => {
-        resolve()
+        resolve();
       })
       .catch((err) =>
         reject(
@@ -72,7 +72,7 @@ export function submit(elements) {
 function validateForm(fields) {
   // Check if the name is valid
   if (fields.fullName.value == "") {
-    fields.fullName.focus() // Focus on the fullName field
+    fields.fullName.focus();// Focus on the fullName field
     return false // Return false to stop the process
   }
 

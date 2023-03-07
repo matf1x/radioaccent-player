@@ -1,7 +1,6 @@
 @use "../abstracts" as *;
 
 @each $color, $shade in $colors {
-
   @each $property, $value in $shade {
     .text-#{$color}-#{$property} {
       color: hsl(var(--clr-#{$color}-#{$property}));
