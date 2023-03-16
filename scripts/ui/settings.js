@@ -1,27 +1,90 @@
-export function loadSettings(elements) {
+let htmlElements = null;
+let audioConfig = null;
+
+/**
+ * Load the settings modal and the event listeners
+ * @param {*} elements the HTML elements
+ * @param {*} audio the audio settings
+ */
+export function loadSettings(elements, audio, player) {
+
+    // Set the global elements
+    htmlElements = elements
+    audioConfig = audio;
+
+    // Load the correct info
+    loadQualitySettings(player);
+
     // Listen to the settings button
-    elements.player.buttons.settings.addEventListener("click", () => {
-        // Open the modal
-        elements.player.modal.component.showModal()
-
-        // Listen for the closing button
-        const closeBtn = elements.player.modal.component.querySelectorAll('[data-action="close-modal"]');
-        closeBtn.forEach(btn => {
-            // Add the close action to every close button
-            btn.addEventListener('click', () => {
-                elements.player.modal.component.close()
-            })
-        })
-
-        // Listen for field changes
-        elements.player.modal.fields.quality.addEventListener('change', (e) => {
-            // Get the selected quality
-            const quality = e.target.value
-        })
-
-        // Listen for submit buttons
-        elements.player.modal.component.querySelector('[data-action="save-settings"]').addEventListener('click', () => {
-            alert('Dit is nog niet mogelijk!')
-        })
+    htmlElements.player.settings.buttons.open.addEventListener("click", () => {
+        // Toggle the popup
+        htmlElements.player.settings.containers.popup.classList.toggle('show')
     })
+
+    // Listen for the quality button
+    htmlElements.player.settings.buttons.quality.addEventListener('click', () => {
+        // Toggle the popup
+        htmlElements.player.settings.containers.main.classList.toggle('show')
+        htmlElements.player.settings.containers.quality.classList.toggle('show')
+    })
+}
+
+/**
+ * Load the options into the settings box
+ */
+function loadQualitySettings(player) {
+
+    // Get the current selected quality from the localCache
+    const currentStreamKey = ("streamIndex" in localStorage) ? localStorage.getItem("streamIndex") : 0
+
+    // Set the correct info in button
+    htmlElements.player.settings.buttons.quality.innerHTML = `Audiokwaliteit: <span>${audioConfig.streams[currentStreamKey].bitrate}kbps</span>`
+
+    // First, create the header
+    const title = document.createElement('p')
+    title.classList.add('title')
+    title.innerText = 'Kies de audiokwaliteit'
+
+    // Add to the holder
+    htmlElements.player.settings.containers.quality.append(title)
+
+    // Get the keys
+    const streams = Object.keys(audioConfig.streams)
+    
+    // Loop over 
+    streams.forEach((key, index) => {
+        const stream = audioConfig.streams[key];
+        const button = document.createElement('button');
+        button.innerText = `${stream.bitrate}kbps - ${stream.type}`;
+        button.addEventListener('click', () => {
+            reloadPlayer(player, audioConfig.streams[key].url)
+            changeGeneralQualityButton(audioConfig.streams[key].bitrate)
+            closePopUp()
+            localStorage.setItem("streamIndex", key)
+            localStorage.setItem("stream", audioConfig.streams[key].url)
+        })
+        htmlElements.player.settings.containers.quality.append(button);
+    })
+
+}
+
+/**
+ * Reload the audio player
+ * @param {Audio} player The player element
+ */
+function reloadPlayer(player, url) {
+    player.pause()
+    player.src = url
+    player.load()
+    player.play()
+}
+
+function changeGeneralQualityButton(bitrate) {
+    htmlElements.player.settings.buttons.quality.innerHTML = `Audiokwaliteit: <span>${bitrate}kbps</span>`
+}
+
+function closePopUp() {
+    htmlElements.player.settings.containers.popup.classList.toggle('show')
+    htmlElements.player.settings.containers.main.classList.toggle('show')
+    htmlElements.player.settings.containers.quality.classList.toggle('show')
 }

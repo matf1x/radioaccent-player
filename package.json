@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass scss:dist/css -w",
-    "sass-minify": "sass scss:dist/css --style compressed"
+    "sass-minify": "sass scss:dist/css --style compressed",
+    "js-minify": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
   "homepage": "https://github.com/matf1x/radioaccent-player#readme",
   "devDependencies": {
     "prettier": "2.8.4",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }

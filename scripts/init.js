@@ -2,15 +2,21 @@
  * Initialize the player
  */
 export async function init() {
-  // Load the config file
-  const { song, elements } = await import("./config.js")
 
+  // Load the required files to initialize the player
+  const { song, audio, elements } = await import("./config.js")
+  const { loadSettings } = await import("./ui/settings.js")
+  
   // Check if the device is online (connected to a wireless network/carrier)
   if(navigator.onLine) {
     // Load the correct files
     const player = await import("./player/main.js")
     player.start
     .then(async (resp) => {
+
+      // Load the settings
+      loadSettings(elements, audio, resp.player);
+
       // Get the song data
       let songCall = await import("./song/main.js")
       try {
@@ -60,15 +66,11 @@ export async function init() {
       }
     })
     .catch((e) => {
-      alert(
-        "Er liep iets fout bij het laden van de player! probeer later opnieuw"
-      )
+      // Go to the offline page because something went wrong
+      // This will be triggerd mostly when the device is not connected to the internet
+      window.location = './offline.html'
     })
   } else {
     window.location = './offline.html'
   }
-
-  // Load the settings
-  const { loadSettings } = await import("./ui/settings.js")
-  loadSettings(elements)
 }

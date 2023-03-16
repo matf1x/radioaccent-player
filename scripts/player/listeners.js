@@ -24,8 +24,11 @@ function buttonListener() {
   // Listen to play button click
   elements.player.buttons.playPause.addEventListener("click", () => {
     // Check if the audio is paused. if so, start the audio. Otherwise, pause the audio
-    if (player.paused) player.play()
-    else player.pause()
+    if (player.paused) { 
+      player.load() 
+      player.play() 
+    }
+    else { player.pause() }
   });
 
   // Listen for volume change
