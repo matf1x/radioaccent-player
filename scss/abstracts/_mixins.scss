@@ -1,5 +1,5 @@
 /*** Mixins ***/
-@use 'breakpoints' as *;
+@use "breakpoints" as *;
 
 /**
  * Create a media query based on a breakpoint
@@ -14,7 +14,7 @@
 /**
  * Set the image full on background page
  **/
-@mixin fullImage($position: 'cover') {
+@mixin fullImage($position: "cover") {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: $position;

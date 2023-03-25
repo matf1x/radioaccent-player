@@ -128,15 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-assets/covers/96x96.png
-assets/covers/512x512.png
-assets/covers/384x384.png
-assets/covers/300x300.png
-assets/covers/256x256.png
-assets/covers/192x192.png
-assets/covers/128x128.png
-old-scripts/
+
+# Custom ignores
 scripts/config.js
-.htaccess
-assets/icons
-assets/img
+assets/covers/
+assets/app/

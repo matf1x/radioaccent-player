@@ -1,6 +1,6 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
-:root { 
+:root {
   --ff-primary: #{$ff-primary};
   --ff-secondary: #{$ff-secondary};
   --spacer: #{$spacer};
@@ -11,29 +11,27 @@
   }
 
   @include mq("medium") {
-      --imageSize: 200px;
+    --imageSize: 200px;
   }
 
   @include mq("large") {
-      --imageSize: 225px;
+    --imageSize: 225px;
   }
 
   @each $color, $shade in $colors {
-    
     @each $property, $value in $shade {
       --clr-#{$color}-#{$property}: #{$value};
-    } 
+    }
   }
 
   @each $screen-size, $property in $font-sizes {
     @if $screen-size == small {
-      @each $prop, $value in $property { 
+      @each $prop, $value in $property {
         --fs-#{$prop}: #{$value};
       }
-    } @else { 
+    } @else {
       @include mq($screen-size) {
-        @each $prop,
-        $value in $property {
+        @each $prop, $value in $property {
           --fs-#{$prop}: #{$value};
         }
       }

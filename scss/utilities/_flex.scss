@@ -12,9 +12,9 @@
 .text--center {
   text-align: center;
 }
-   
-  @mixin flex($align: center, $justify: between) {
-    @extend .flex;
-    align-items: $align;
-    justify-content: $justify;
-  }
+
+@mixin flex($align: center, $justify: between) {
+  @extend .flex;
+  align-items: $align;
+  justify-content: $justify;
+}

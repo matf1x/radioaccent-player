@@ -1,134 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Radio Accent - Jouw Radio, Jouw Ritme">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#032d49">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Radio Accent - Jouw Radio, Jouw Ritme" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#032d49" />
     <title>Live | Radio Accent - Jouw Radio, Jouw Ritme</title>
 
     <!-- Preload -->
     <link rel="dns-prefetch" href="https://www.radioaccent.be" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icons/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="dns-prefetch" href="https://www.clubfmserver.be" />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      href="icons/apple-splash-2048-2732.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
 
     <!-- Custom handlers -->
-    <link rel="preload" href="./dist/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./dist/css/style.css"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-<body>
-
+    <link
+      rel="preload"
+      href="./dist/css/style.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="./dist/css/style.css" /></noscript>
+  </head>
+  <body>
     <section class="player">
+      <div class="player--branding">
+        <picture>
+          <source srcset="./assets/img/logo.webp" type="image/webp" />
+          <img
+            src="./assets/img/logo.png"
+            width="200"
+            height="60"
+            alt="Radio Accent Logo"
+            title="Radio Accent - Jouw Radio, Jouw Ritme"
+          />
+        </picture>
+      </div>
 
-        <div class="player--branding">
-            <picture>
-                <source srcset="./assets/img/logo.webp" type="image/webp">
-                <img src="./assets/img/logo.png" width="200" height="60" alt="Radio Accent Logo" title="Radio Accent - Jouw Radio, Jouw Ritme">
-            </picture>
-        </div>
-
-        <div class="player--holder">
-            <img src="" alt="" data-type="background-image">
-            <div class="player--holder__content">
-                <div class="songInfo">
-                    <img src="" alt="" data-type="song-cover">
-                    <div class="songInfo--text">
-                        <h3 data-type="artist">Radio Accent</h3>
-                        <h4 data-type="title">Jouw Radio, Jouw Ritme</h4>
-                    </div>
-                </div>
-                <div class="songControls">
-                    <a href="#" aria-label='Stuur een bericht naar de Studio' data-type="message"><i class="fa-regular fa-comments"></i> <span>Stuur bericht</span></a>
-                    <div class="flex--grow text--center">
-                        <i class="fa-solid fa-circle-play" data-type="playpause"></i>
-                    </div>
-                    <div class="flex volumeSlider">
-                        <input type="range" min="0" max="100" value="100" class="volume" data-type="volume"></input>
-                        <i class="fa-solid fa-volume-high" data-type="mute"></i>
-                    </div>
-                </div>
+      <div class="player--holder is-loading">
+        <div class="player--holder__content">
+          <div class="songInfo">
+            <img src="" alt="Radio Accent" data-type="song-cover" />
+            <div class="songInfo--text">
+              <h3 data-type="artist"></h3>
+              <h4 data-type="title"></h4>
             </div>
-        </div>
+          </div>
 
-        <div class="player--footer flex">
-            <p class="copyright">&copy; 2023 Radio Accent - VZW Radio VRS - Bookmolenstraat 7, 9230 Wetteren</p>
-            <ul class="socials flex">
-                <li><a aria-label="Volg Radio Accent op Facebook" href="https://www.facebook.com/radioaccentgentwetteren/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a aria-label="Volg Radio Accent op Twitter" href="https://twitter.com/radioaccentbe" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a aria-label="Volg Radio Accent op Instagram" href="https://www.instagram.com/radioaccent/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a aria-label="Volg Radio Accent op YouTube" href="https://www.youtube.com/channel/UCgHgiCdJkz9xv1396ufy5mg" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-            </ul>
-        </div>
+          <div class="audioControls">
+            <div data-type="playpause"></div>
+          </div>
 
+          <div class="otherControls">
+            <div class="flex volumeSlider">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                class="volume"
+                data-type="volume"
+              />
+              <div class="volumeIcon" data-type="mute">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                  <path
+                    d="M533.6 32.5C598.5 85.3 640 165.8 640 256s-41.5 170.8-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <a href="#" aria-label="Stuur een bericht naar de Studio"data-type="message"></a>
+            <div class="settings">
+              <a href="#" aria-label="Instellingen" data-type="settings">
+                <svg class="active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M481.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-30.9 28.1c-7.7 7.1-11.4 17.5-10.9 27.9c.1 2.9 .2 5.8 .2 8.8s-.1 5.9-.2 8.8c-.5 10.5 3.1 20.9 10.9 27.9l30.9 28.1c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-39.7-12.6c-10-3.2-20.8-1.1-29.7 4.6c-4.9 3.1-9.9 6.1-15.1 8.7c-9.3 4.8-16.5 13.2-18.8 23.4l-8.9 40.7c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-8.9-40.7c-2.2-10.2-9.5-18.6-18.8-23.4c-5.2-2.7-10.2-5.6-15.1-8.7c-8.8-5.7-19.7-7.8-29.7-4.6L69.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l30.9-28.1c7.7-7.1 11.4-17.5 10.9-27.9c-.1-2.9-.2-5.8-.2-8.8s.1-5.9 .2-8.8c.5-10.5-3.1-20.9-10.9-27.9L8.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l39.7 12.6c10 3.2 20.8 1.1 29.7-4.6c4.9-3.1 9.9-6.1 15.1-8.7c9.3-4.8 16.5-13.2 18.8-23.4l8.9-40.7c2-9.1 9-16.3 18.2-17.8C213.3 1.2 227.5 0 242 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l8.9 40.7c2.2 10.2 9.4 18.6 18.8 23.4c5.2 2.7 10.2 5.6 15.1 8.7c8.8 5.7 19.7 7.7 29.7 4.6l39.7-12.6c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM242 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"
+                  />
+                </svg>
+              </a>
+              <div class="settings--popout" data-settings-window="popup">
+                <div class="show" data-settings-window="main">
+                  <p aria-label="Instellingen" class="title">Instellingen</p>
+                  <button aria-label="Audiokwaliteit" data-settings="quality">
+                    Audiokwaliteit: <span>160kbps</span>
+                  </button>
+                </div>
+
+                <div data-settings-window="quality"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- The message modal -->
     <dialog class="modal" data-modal="message">
+      <span class="closeButton" data-action="close-modal">X</span>
 
-        <span class="closeButton" data-action="close-modal">X</span>
+      <section id="entry" class="entry screen visible" data-screen="form">
+        <h2>Stuur een bericht</h2>
+        <p>
+          Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier
+          in en stuur jouw bericht.
+        </p>
 
-        <section id="entry" class="entry screen visible" data-screen="form">
-            <h2>Stuur een bericht</h2>
-            <p>Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier in en stuur jouw bericht.</p>
+        <p class="error" id="errorMessage" data-form="error">
+          Er is een fout opgetreden tijdens het versturen van je bericht!
+          Probeer later opnieuw
+        </p>
 
-            <p class="error" id="errorMessage" data-form="error">Er is een fout opgetreden tijdens het versturen van je bericht! Probeer later opnieuw</p>
+        <form data-form="message">
+          <div class="input-box">
+            <label>Uw naam: <span>*</span></label>
+            <input
+              type="text"
+              required
+              placeholder="Vul je naam in"
+              name="fullName"
+            />
+          </div>
 
-            <form data-form="message">
+          <div class="input-box">
+            <label>Uw emailadres: </label>
+            <input
+              type="email"
+              placeholder="Vul je emailadres in"
+              name="mail"
+            />
+          </div>
 
-                <div class="input-box">
-                    <label>Uw naam: <span>*</span></label>
-                    <input type="text" required placeholder="Vul je naam in" name="fullName">
-                </div>
+          <div class="input-box">
+            <label>Uw telefoonnummer: </label>
+            <input
+              type="tel"
+              placeholder="Vul je telefoonnummer in"
+              name="phone"
+            />
+          </div>
 
-                <div class="input-box">
-                    <label>Uw emailadres: </label>
-                    <input type="email" placeholder="Vul je emailadres in" name="mail">
-                </div>
+          <div class="input-box">
+            <label>Uw bericht: <span>*</span></label>
+            <input
+              type="text"
+              required
+              placeholder="Vul je bericht in"
+              name="message"
+            />
+          </div>
 
-                <div class="input-box">
-                    <label>Uw telefoonnummer: </label>
-                    <input type="tel" placeholder="Vul je telefoonnummer in" name="phone">
-                </div>
+          <div class="buttons">
+            <button type="submit" class="submit">Verstuur bericht</button>
+            <button type="reset" data-action="close-modal">Annuleren</button>
+          </div>
+        </form>
+      </section>
 
-                <div class="input-box">
-                    <label>Uw bericht: <span>*</span></label>
-                    <input type="text" required placeholder="Vul je bericht in" name="message">
-                </div>
+      <section class="complete screen" data-screen="success">
+        <svg
+          class="checkmark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 52 52"
+        >
+          <circle
+            class="checkmark__circle"
+            cx="26"
+            cy="26"
+            r="25"
+            fill="none"
+          />
+          <path
+            class="checkmark__check"
+            fill="none"
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+          />
+        </svg>
 
-                <div class="buttons">
-                    <button type="submit" class="submit">Verstuur bericht</button> <button type="reset">Annuleren</button>
-                </div>
+        <h2>Het bericht is succesvol verstuurd</h2>
+        <p>
+          Je bericht heeft de studio bereikt. Je kan nu dit venster afsluiten.
+        </p>
 
-            </form>
-        </section>
-
-        <section class="complete screen" data-screen="success">
-            
-            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-
-            <h2>Het bericht is succesvol verstuurd</h2>
-            <p>Je bericht heeft de studio bereikt. Je kan nu dit venster afsluiten.</p>
-
-            <div class="buttons">
-                <button type="button" id="closeMessage" data-action="close-modal">Sluiten</button>
-            </div>
-            
-        </section>
-        
+        <div class="buttons">
+          <button type="button" id="closeMessage" data-action="close-modal">
+            Sluiten
+          </button>
+        </div>
+      </section>
     </dialog>
-    
+
     <!-- Javascripts -->
     <script src="./scripts/main.js" type="module"></script>
     <script>
-        /** Check for Service Workers */
-        if('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
+      /** Check for Service Workers */
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js");
+      }
     </script>
-
-</body>
+  </body>
 </html>
