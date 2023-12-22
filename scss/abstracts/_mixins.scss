@@ -19,12 +19,3 @@
   background-repeat: no-repeat;
   background-position: $position;
 }
-
-/**
- * The Radio Accent border radius
- **/
-@mixin accentBorder() {
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}

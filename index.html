@@ -2,206 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Live | Radio Accent - Jouw Radio, Jouw Ritme"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Radio Accent - Jouw Radio, Jouw Ritme" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#032d49" />
     <title>Live | Radio Accent - Jouw Radio, Jouw Ritme</title>
 
     <!-- Preload -->
-    <link rel="dns-prefetch" href="https://www.radioaccent.be" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://www.clubfmserver.be" />
-    <link rel="manifest" href="manifest.json" />
-    <link
-      rel="apple-touch-icon"
-      href="icons/apple-splash-2048-2732.jpg"
-      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-    />
+    <link rel="preconnect" href="https://www.clubfmserver.be" />
 
     <!-- Custom handlers -->
-    <link
-      rel="preload"
-      href="./dist/css/style.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="./dist/css/style.css" /></noscript>
+    <link rel="stylesheet" href="./dist/css/style.css" media="all" />
   </head>
   <body>
-    <section class="player">
-      <div class="player--branding">
-        <picture>
-          <source srcset="./assets/img/logo.webp" type="image/webp" />
+    <section class="player content-grid">
+      <div class="player__branding"></div>
+      <div class="player__holder songInfo">
+        <picture class="songInfo__cover">
           <img
-            src="./assets/img/logo.png"
-            width="200"
-            height="60"
-            alt="Radio Accent Logo"
-            title="Radio Accent - Jouw Radio, Jouw Ritme"
+            src="data:image/png;charset=utf-8;base64,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"
+            alt="songcover"
+            width="150"
+            height="150"
+            loading="lazy"
           />
         </picture>
+        <div class="songInfo__tags">
+          <h1>Twarres</h1>
+          <h2>Wêr Bisto</h2>
+        </div>
       </div>
-
-      <div class="player--holder is-loading">
-        <div class="player--holder__content">
-          <div class="songInfo">
-            <img src="" alt="Radio Accent" data-type="song-cover" />
-            <div class="songInfo--text">
-              <h3 data-type="artist"></h3>
-              <h4 data-type="title"></h4>
-            </div>
-          </div>
-
-          <div class="audioControls">
-            <div data-type="playpause"></div>
-          </div>
-
-          <div class="otherControls">
-            <div class="flex volumeSlider">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="100"
-                class="volume"
-                data-type="volume"
+      <div class="player__controls playerControls">
+        <div class="playerControls__volume">Volume</div>
+        <div class="playerControls__main">
+          <button class="playerControls__playPause" aria-label="Play / Pause">
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 14 16"
+            >
+              <path
+                d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z"
               />
-              <div class="volumeIcon" data-type="mute">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                  <path
-                    d="M533.6 32.5C598.5 85.3 640 165.8 640 256s-41.5 170.8-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"
-                  />
-                </svg>
-              </div>
-            </div>
+            </svg>
+          </button>
+        </div>
+        <div class="playerControls__meta">
+          <button>
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 18"
+              fill="currentColor"
+            >
+              <path
+                d="M18 4H16V9C16 10.0609 15.5786 11.0783 14.8284 11.8284C14.0783 12.5786 13.0609 13 12 13H9L6.846 14.615C7.17993 14.8628 7.58418 14.9977 8 15H11.667L15.4 17.8C15.5731 17.9298 15.7836 18 16 18C16.2652 18 16.5196 17.8946 16.7071 17.7071C16.8946 17.5196 17 17.2652 17 17V15H18C18.5304 15 19.0391 14.7893 19.4142 14.4142C19.7893 14.0391 20 13.5304 20 13V6C20 5.46957 19.7893 4.96086 19.4142 4.58579C19.0391 4.21071 18.5304 4 18 4Z"
+                fill="currentColor"
+              />
+              <path
+                d="M12 0H2C1.46957 0 0.960859 0.210714 0.585786 0.585786C0.210714 0.960859 0 1.46957 0 2V9C0 9.53043 0.210714 10.0391 0.585786 10.4142C0.960859 10.7893 1.46957 11 2 11H3V13C3 13.1857 3.05171 13.3678 3.14935 13.5257C3.24698 13.6837 3.38668 13.8114 3.55279 13.8944C3.71889 13.9775 3.90484 14.0126 4.08981 13.996C4.27477 13.9793 4.45143 13.9114 4.6 13.8L8.333 11H12C12.5304 11 13.0391 10.7893 13.4142 10.4142C13.7893 10.0391 14 9.53043 14 9V2C14 1.46957 13.7893 0.960859 13.4142 0.585786C13.0391 0.210714 12.5304 0 12 0Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>Stuur bericht</span>
+          </button>
 
-            <a href="#" aria-label="Stuur een bericht naar de Studio"data-type="message"></a>
-            <div class="settings">
-              <a href="#" aria-label="Instellingen" data-type="settings">
-                <svg class="active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M481.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-30.9 28.1c-7.7 7.1-11.4 17.5-10.9 27.9c.1 2.9 .2 5.8 .2 8.8s-.1 5.9-.2 8.8c-.5 10.5 3.1 20.9 10.9 27.9l30.9 28.1c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-39.7-12.6c-10-3.2-20.8-1.1-29.7 4.6c-4.9 3.1-9.9 6.1-15.1 8.7c-9.3 4.8-16.5 13.2-18.8 23.4l-8.9 40.7c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-8.9-40.7c-2.2-10.2-9.5-18.6-18.8-23.4c-5.2-2.7-10.2-5.6-15.1-8.7c-8.8-5.7-19.7-7.8-29.7-4.6L69.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l30.9-28.1c7.7-7.1 11.4-17.5 10.9-27.9c-.1-2.9-.2-5.8-.2-8.8s.1-5.9 .2-8.8c.5-10.5-3.1-20.9-10.9-27.9L8.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l39.7 12.6c10 3.2 20.8 1.1 29.7-4.6c4.9-3.1 9.9-6.1 15.1-8.7c9.3-4.8 16.5-13.2 18.8-23.4l8.9-40.7c2-9.1 9-16.3 18.2-17.8C213.3 1.2 227.5 0 242 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l8.9 40.7c2.2 10.2 9.4 18.6 18.8 23.4c5.2 2.7 10.2 5.6 15.1 8.7c8.8 5.7 19.7 7.7 29.7 4.6l39.7-12.6c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM242 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"
-                  />
-                </svg>
-              </a>
-              <div class="settings--popout" data-settings-window="popup">
-                <div class="show" data-settings-window="main">
-                  <p aria-label="Instellingen" class="title">Instellingen</p>
-                  <button aria-label="Audiokwaliteit" data-settings="quality">
-                    Audiokwaliteit: <span>160kbps</span>
-                  </button>
-                </div>
-
-                <div data-settings-window="quality"></div>
-              </div>
-            </div>
-          </div>
+          <button>
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <g
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  d="M19 11V9a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L12 2.757V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L2.929 4.343a1 1 0 0 0 0 1.414l.536.536L2.757 8H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535L8 17.243V18a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H18a1 1 0 0 0 1-1Z"
+                />
+                <path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+              </g>
+            </svg>
+            <span>Instellingen</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- The message modal -->
-    <dialog class="modal" data-modal="message">
-      <span class="closeButton" data-action="close-modal">X</span>
-
-      <section id="entry" class="entry screen visible" data-screen="form">
-        <h2>Stuur een bericht</h2>
-        <p>
-          Wil jij iets kwijt aan onze presentatoren? Vul onderstaand formulier
-          in en stuur jouw bericht.
-        </p>
-
-        <p class="error" id="errorMessage" data-form="error">
-          Er is een fout opgetreden tijdens het versturen van je bericht!
-          Probeer later opnieuw
-        </p>
-
-        <form data-form="message">
-          <div class="input-box">
-            <label>Uw naam: <span>*</span></label>
-            <input
-              type="text"
-              required
-              placeholder="Vul je naam in"
-              name="fullName"
-            />
-          </div>
-
-          <div class="input-box">
-            <label>Uw emailadres: </label>
-            <input
-              type="email"
-              placeholder="Vul je emailadres in"
-              name="mail"
-            />
-          </div>
-
-          <div class="input-box">
-            <label>Uw telefoonnummer: </label>
-            <input
-              type="tel"
-              placeholder="Vul je telefoonnummer in"
-              name="phone"
-            />
-          </div>
-
-          <div class="input-box">
-            <label>Uw bericht: <span>*</span></label>
-            <input
-              type="text"
-              required
-              placeholder="Vul je bericht in"
-              name="message"
-            />
-          </div>
-
-          <div class="buttons">
-            <button type="submit" class="submit">Verstuur bericht</button>
-            <button type="reset" data-action="close-modal">Annuleren</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="complete screen" data-screen="success">
-        <svg
-          class="checkmark"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 52 52"
-        >
-          <circle
-            class="checkmark__circle"
-            cx="26"
-            cy="26"
-            r="25"
-            fill="none"
-          />
-          <path
-            class="checkmark__check"
-            fill="none"
-            d="M14.1 27.2l7.1 7.2 16.7-16.8"
-          />
-        </svg>
-
-        <h2>Het bericht is succesvol verstuurd</h2>
-        <p>
-          Je bericht heeft de studio bereikt. Je kan nu dit venster afsluiten.
-        </p>
-
-        <div class="buttons">
-          <button type="button" id="closeMessage" data-action="close-modal">
-            Sluiten
-          </button>
-        </div>
-      </section>
-    </dialog>
-
-    <!-- Javascripts -->
-    <script src="./scripts/main.js" type="module"></script>
     <script>
       /** Check for Service Workers */
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js");
+        navigator.serviceWorker.register("sw.js")
       }
     </script>
   </body>

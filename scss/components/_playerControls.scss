@@ -1,0 +1,87 @@
+@use "../abstracts" as *;
+
+.playerControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  button,
+  &__playPause {
+    padding: 0;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+  }
+
+  &__main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__volume,
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    margin: 0 1rem;
+    width: 150px;
+
+    button {
+      color: var(--clr-secondary-400);
+
+      span {
+        display: none;
+        font-size: var(--fs-100);
+        color: rgba(255, 255, 255, 0.5);
+        line-height: var(--fs-100);
+        font-weight: 500;
+        margin-top: -2.5px;
+        transition: color 300ms ease-in-out;
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        @include mq("medium") {
+          display: block;
+        }
+      }
+
+      &:hover {
+        color: var(--clr-neutral-100);
+      }
+    }
+  }
+
+  &__meta {
+    justify-content: flex-end;
+  }
+
+  &__playPause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    background-color: var(--clr-secondary-400) !important;
+    color: var(--clr-primary-600);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
